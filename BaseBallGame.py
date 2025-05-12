@@ -24,8 +24,31 @@ def click_btnCheck():
 
     strike = 0
     ball = 0
-    output_str = str(strike)+"S"+" "+str(ball)+"B"
-    btnCheck["text"] = (output_str)
+
+    num1 = entryLec1.get()
+    num2 = entryLec2.get()
+    num3 = entryLec3.get()
+
+    if num1 == answer[0]:
+        strike += 1
+    elif num1 == answer[1] or num1 == answer[2]:
+        ball += 1
+
+    if num2 == answer[1]:
+        strike += 1
+    elif num2 == answer[0] or num2 == answer[2]:
+        ball += 1
+
+    if num3 == answer[2]:
+        strike += 1
+    elif num3 == answer[0] or num3 == answer[1]:
+        ball += 1
+
+    output_str = str(strike) + "S " + str(ball) + "B"
+    btnCheck["text"] = output_str
+
+    if strike == 3:
+        successGame = True
     #------------------- 과제 영역 끝 -----------------------#
 
     # Game End (9번의 기회를 모두 사용한 경우)
